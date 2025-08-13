@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lo‑Fi Tape Deck</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,500,700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <!-- USER INFO + ADMIN BADGE -->
+  <div id="user-info">
+    <span id="user-email">Not logged in</span>
+    <span id="admin-badge" class="hidden" title="Admin">admin</span>
+    <button id="login-btn">Login</button>
+    <button id="register-btn" title="Register">
+      <img src="img/gm.png" alt="Register" style="width:22px;height:22px;vertical-align:middle;"/>
+    </button>
+    <button id="logout-btn" class="hidden">Logout</button>
+  </div>
+
+  <header>
+    <h1>Lo‑Fi Tape Deck</h1>
+    <p>Every cassette is a hand-drawn memory.<br>Digital boombox &amp; musical diary.</p>
+  </header>
+
+  <main>
+   <div class="boombox-centerer">
+  <div class="boombox-relative">
+    <img src="img/boombox.png" class="boombox-pixel" alt="boombox" />
+    <img src="img/pixel-corgi.png" class="pixel-corgi" alt="Pixel Corgi" />
+    <img src="img/pixel-cat.png" class="pixel-cat" alt="Pixel Cat" />
+  </div>
+</div>
+
+    <!-- Основной блок с кассетой -->
+    <div id="cassette-display">
+      <img id="cassette-img" src="img/tape0001.png" alt="Cassette"/>
+      <div id="cassette-desc">Description goes here...</div>
+      <div id="cassette-player"></div>
+      <img src="img/corner.png" class="corner-sticker" alt="Sticker" />
+    </div>
+
+    <!-- Фильтры по категориям -->
+    <div class="filters">
+      <button data-cat="all" class="active">All</button>
+      <button data-cat="sunbeam">☀️ Sunbeam</button>
+      <button data-cat="midnight">🌌 Midnight</button>
+      <button data-cat="overcast">🌧 Overcast</button>
+    </div>
+
+    <!-- Ряд мини-кассет -->
+    <div id="tape-row" class="tape-row"></div>
+  </main>
+
+  <!-- Suggest a Tape (songs.png) -->
+  <button id="add-tape-btn" title="Suggest a tape">
+    <img src="img/songs.png" alt="Suggest a tape"/>
+  </button>
+
+  <!-- Пиксельный кактус и фраза -->
+  <img src="img/cactus.png" id="pixel-cactus" alt="Cactus"/>
+  <div id="cactus-phrase"></div>
+
+  <!-- Модалка добавления кассеты -->
+  <div class="modal hidden" id="addTapeModal">
+    <div class="modal-content">
+      <button id="close-modal" style="float:right; background:none; border:none; font-size:1.3em;">×</button>
+      <h3>Suggest a tape</h3>
+      <input id="tapeTitleInput" type="text" placeholder="Title"/><br/><br/>
+      <textarea id="tapeDescriptionInput" placeholder="Description"></textarea><br/><br/>
+      <input id="tapeSpotifyInput" type="text" placeholder="Spotify embed link"/><br/><br/>
+      <select id="tapeCategorySelect">
+        <option value="sunbeam">Sunbeam</option>
+        <option value="midnight">Midnight</option>
+        <option value="overcast">Overcast</option>
+      </select><br/><br/>
+      <label style="font-size:0.95em;">Cassette style:</label>
+      <select id="tapeImageSelect"></select><br/>
+      <img id="tapePreview" src="img/tape0001.png" alt="Tape preview"/>
+      <button id="submit-tape" style="width:100%;margin-top:10px;">Send</button>
+    </div>
+  </div>
+
+  <!-- 🔐 Модалка логина -->
+  <div class="modal hidden" id="loginModal">
+    <div class="modal-content">
+      <h3>Sign In</h3>
+      <button id="google-login-btn">Sign in with Google</button>
+      <button id="email-login-btn">Sign in with Email</button>
+      <button id="anon-login-btn">Continue as Guest</button>
+      <button id="login-cancel-btn">Cancel</button>
+    </div>
+  </div>
+
+  <!-- JS Модули -->
+  <script type="module" src="main.js"></script>
+</body>
+</html>
